@@ -11,10 +11,10 @@ import javax.sql.DataSource;
 
 import com.leo.dbassistant.handler.ResultSetHandler;
 
-public class DbAssistant {
+public class Amy {
 	private DataSource dataSource;
 	
-	public DbAssistant(DataSource dataSource) {
+	public Amy(DataSource dataSource) {
 		this.dataSource = dataSource;
 	}
 	
@@ -37,9 +37,9 @@ public class DbAssistant {
 			int num = pmd.getParameterCount();
 			if(num > 0) {
 				if(params == null)
-					throw new IllegalArgumentException("大哥，缺少 SQL 参数！");
+					throw new IllegalArgumentException("SQL 语句缺少参数！");
 				if(num != params.length)
-					throw new IllegalArgumentException("SQL 参数个数对不上啊？");
+					throw new IllegalArgumentException("SQL 语句参数个数不匹配！");
 				for(int i=0; i< num; i++)
 					stmt.setObject(i+1, params[i]);
 			}
@@ -70,9 +70,9 @@ public class DbAssistant {
 			int num = pmd.getParameterCount();
 			if(num > 0) {
 				if(params == null)
-					throw new IllegalArgumentException("大哥，缺少 SQL 参数！");
+					throw new IllegalArgumentException("SQL 语句缺少参数！");
 				if(num != params.length)
-					throw new IllegalArgumentException("SQL 参数个数对不上啊？");
+					throw new IllegalArgumentException("SQL 语句参数个数不匹配！");
 				for(int i=0; i< num; i++)
 					stmt.setObject(i+1, params[i]);
 			}
@@ -104,7 +104,7 @@ public class DbAssistant {
 		}
 		if (conn != null) {
 			try {
-				conn.close(); // 即连接归还连接池
+				conn.close(); // 即将连接归还连接池
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}

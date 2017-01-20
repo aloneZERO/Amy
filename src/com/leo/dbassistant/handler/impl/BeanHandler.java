@@ -30,7 +30,7 @@ public class BeanHandler implements ResultSetHandler {
 					Object fieldValue = rs.getObject(i+1);
 					// 反射字段
 					Field field = clazz.getDeclaredField(fieldName); // 私有属性
-					field.setAccessible(true); // 私有~哥强制访问
+					field.setAccessible(true); // 私有~强制访问
 					field.set(bean, fieldValue);
 				}
 				return bean;
@@ -38,7 +38,7 @@ public class BeanHandler implements ResultSetHandler {
 				return null;
 			}
 		} catch (Exception e) {
-			throw new RuntimeException("数据封装失败...");
+			throw new RuntimeException("数据封装失败..."+e.getMessage());
 		}
 	}
 

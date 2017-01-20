@@ -4,19 +4,19 @@ import java.util.List;
 
 import org.junit.Test;
 
-import com.leo.dbassistant.DbAssistant;
+import com.leo.dbassistant.Amy;
 import com.leo.dbassistant.handler.impl.BeanHandler;
 import com.leo.dbassistant.handler.impl.ListBeanHandler;
-import com.leo.domain.Account;
+import com.leo.test.domain.Account;
 import com.leo.util.DBCPUtil;
 
-public class DBAssistantTest {
-	private DbAssistant dba = new DbAssistant(DBCPUtil.getDataSource());
+public class AmyTest {
+	private Amy dba = new Amy(DBCPUtil.getDataSource());
 	
 	@Test
 	public void testAdd() {
 		String sql = "insert into t_account(id,name,money) values(?,?,?)";
-		dba.update(sql, 6,"ttt",1000);
+		dba.update(sql, 6,"XXX",1000);
 	}
 	@Test
 	public void testMod() {

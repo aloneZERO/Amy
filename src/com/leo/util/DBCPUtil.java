@@ -34,5 +34,5 @@ public class DBCPUtil {
 		}
 	}
 	
-	private DBCPUtil() {}
+	private DBCPUtil() {} // 工具类构造方法私有化
 }

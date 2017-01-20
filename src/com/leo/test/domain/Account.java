@@ -1,5 +1,9 @@
-package com.leo.domain;
+package com.leo.test.domain;
 
+/**
+ * 实体 JavaBean 用于测试
+ * @author leo
+ */
 public class Account {
 	private Integer id;
 	private String name;
