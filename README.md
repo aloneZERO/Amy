@@ -55,4 +55,4 @@ public class AmyTest {
 
 ## 下载
 
-点击下载：[amy-1.0.jar](https://github.com/alonezero/amy/resource/amy-1.0.jar)
+点击下载：[amy-1.0.jar](https://raw.githubusercontent.com/aloneZERO/Amy/master/resource/amy-1.0.jar)
