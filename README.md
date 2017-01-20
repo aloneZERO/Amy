@@ -47,9 +47,9 @@ public class AmyTest {
 
 ## 测试依赖
 
-测试请修改 dbcp 配置文件：[dbcpconfig.properties](https://github.com/alonezero/amy/src/dbcpconfig.properties)
+测试请修改 dbcp 配置文件：[dbcpconfig.properties](https://github.com/aloneZERO/Amy/blob/master/src/dbcpconfig.properties)
 
-详细的测试依赖请见：[test-readme.md](https://github.com/alonezero/amy/lib/README.md)
+详细的测试依赖请见：[test-readme.md](https://github.com/aloneZERO/Amy/blob/master/lib/README.md)
 
 
 
