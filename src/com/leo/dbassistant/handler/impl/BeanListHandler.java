@@ -4,38 +4,42 @@ import java.lang.reflect.Field;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.leo.dbassistant.handler.ResultSetHandler;
 
 /**
  * 类字段名和数据库字段名保持一致。
- * 仅适合结果集数据只有一条的情况。
- * 返回一个 JavaBean.
- *
- * @param <T> 目标 bean 的类型
+ * 适合结果集数据多条的情况。返回 list.
+ * 
+ * @param <T> 目标 bean 的类型。
  */
-public class BeanHandler<T> implements ResultSetHandler<T> {
+public class BeanListHandler<T> implements ResultSetHandler<List<T>> {
+	
 	/**
 	 * 目标 bean 的类型
 	 */
     private final Class<T> type;
 	
-	public BeanHandler(Class<T> type) {
+	public BeanListHandler(Class<T> type) {
 		this.type = type;
 	}
 	
 	/**
-	 * 根据指定的目标 bean 类型，将结果集的第一行记录封装到一个 bean。
+	 * 根据指定的目标 bean 类型，将结果集的每条记录封装到一个 bean，
+	 * 将每个 bean 放到 List 集合中返回。
 	 * 
 	 * @param rs 被处理的结果集。
-	 * @return 一个被初始化后的 JavaBean ；若结果集无记录则返回 null。
+	 * @return 一个 bean list 集合。
 	 * 
 	 * @throws SQLException 若数据库访问发生错误，则抛出该异常。
 	 */
 	@Override
-	public T handle(ResultSet rs) throws SQLException {
+	public List<T> handle(ResultSet rs) throws SQLException {
 		try{
-			if(rs.next()) {
+			List<T> beanList = new ArrayList<>();
+			while(rs.next()) {
 				T bean = type.newInstance();
 				
 				ResultSetMetaData rsmd = rs.getMetaData();
@@ -48,10 +52,9 @@ public class BeanHandler<T> implements ResultSetHandler<T> {
 					field.setAccessible(true); // 私有~强制访问
 					field.set(bean, fieldValue);
 				}
-				return bean;
-			} else {
-				return null;
+				beanList.add(bean);
 			}
+			return beanList;
 		} catch (Exception e) {
 			throw new RuntimeException("数据封装失败..."+e.getMessage());
 		}
