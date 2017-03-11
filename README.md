@@ -29,4 +29,4 @@ Amy 开发环境： Eclipse-neon-2 、JDK7.0+ 。
 
 ## 下载
 
-点击下载：[amy-1.0.jar](resource/amy-1.0.jar)
+点击下载：[amy-1.0.jar](https://github.com/aloneZERO/Amy/raw/master/resource/amy-1.0.jar)
