@@ -1,6 +1,5 @@
 # Amy
-*JDBC 轻量级框架，一行代码完成 CRUD* !
-
+*JDBC 工具，一行代码完成 CRUD* !
 
 
 ## 编译项目
@@ -12,11 +11,8 @@ Amy 开发环境： Eclipse-neon-2 、JDK7.0+ 。
 或者直接下载提供编译好的 jar 包。
 
 
-
 ## 示例代码
 请参考：[AmyTest.java](src/com/leo/test/AmyTest.java)
-
-
 
 
 ## 测试
